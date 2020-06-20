@@ -1,9 +1,23 @@
 :root {
   /* font */
   --main-font: 'Orbitron', sans-serif;
+
+  /* background colors */
+  --calculator-background-color: #696969;
+
+  /* calculator dimensions */
+  --calculator-height: 72%;
+  --calculator-width: 36%;
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    --calculator-height: 100%;
+    --calculator-width: 100%;
+  }
 }
 
 body, div, p {
-  margin: 0;
+  margin: auto;
   padding: 0;
 }
