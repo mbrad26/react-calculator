@@ -16,29 +16,34 @@ class Calculator extends Component {
     console.log('call operation');
   }
 
-  setOperator = () => {
-    console.log('set operation');
-  }
+  setOperator = value => {
+    let { displayValue, selectedOperator, storedValue } = this.state;
+
+    if (selectedOperator === '') {
+      storedValue = displayValue;
+      displayValue = '0';
+      selectedOperator = value;
+    } else {
+      selectedOperator = value;
+    }
+
+    this.setState({ displayValue, selectedOperator, storedValue });
+  };
 
   updateDisplay = (value) => {
     let { displayValue } = this.state;
 
-    // prevent multiple occurences of '.'
     if (value === '.' && displayValue.includes('.')) value = '';
 
     if (value === 'ce') {
-      // deletes last char in displayValue
       displayValue = displayValue.substr(0, displayValue.length - 1);
-      // set displayValue to '0' if displayValue is empty string
       if (displayValue === '') displayValue = '0';
     } else {
-      // replace displayValue with value if displayValue equal to '0'
-      // else concatenate displayValue and value
       displayValue === '0' ? displayValue = value : displayValue += value;
     }
 
     this.setState({ displayValue });
-  }
+  };
 
   render() {
     const { displayValue } = this.state;
