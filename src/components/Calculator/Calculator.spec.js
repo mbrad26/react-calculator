@@ -17,7 +17,7 @@ describe('Calculator', () => {
   it('should render a div', () => {
     const wrapper = shallow(<Calculator />);
 
-    expect(wrapper.find('div.calculator-container').length).toEqual(1);
+    expect(wrapper.find('div').length).toEqual(1);
   });
 
   it('should contain the Display component', () => {
